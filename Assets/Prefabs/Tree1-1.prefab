@@ -11,6 +11,11 @@ GameObject:
   - component: {fileID: 7294734692759689962}
   - component: {fileID: 7294734692759689963}
   - component: {fileID: 7294734692759689956}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 2086417385086232739}
+  - component: {fileID: -8832929675389032932}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Tree1-1
   m_TagString: Untagged
@@ -26,7 +31,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7294734692759689957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: -10.03, y: 6.13, z: -2}
+=======
+  m_LocalPosition: {x: -10.028, y: 6.136, z: -2}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,3 +111,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< Updated upstream
+=======
+--- !u!114 &2086417385086232739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294734692759689957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991c057f41cd53648ab4ed7a7da4aee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zOffset: -0.9
+--- !u!61 &-8832929675389032932
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294734692759689957}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.004812002, y: -0.8517304}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2142856, y: 3.2142856}
+    newSize: {x: 1.35, y: 1.35}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27894354, y: 0.16345513}
+  m_EdgeRadius: 0
+>>>>>>> Stashed changes
