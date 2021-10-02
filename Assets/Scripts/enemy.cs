@@ -6,19 +6,19 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
     public GameObject player;
-    public float agro_radius;
+    public float agroRadius;
 
     private bool isActive;
     private Rigidbody2D _rb; 
-    private BoxCollider2D bc;
+    private CircleCollider2D bc;
     // Start is called before the first frame update
     void Start()
     {
         isActive = false;
         _rb = GetComponent<Rigidbody2D>();
-        bc = gameObject.AddComponent<BoxCollider2D>() as BoxCollider2D;
+        bc = gameObject.AddComponent<CircleCollider2D>() as CircleCollider2D;
         bc.isTrigger = true;
-        bc.size = new Vector2(agro_radius, agro_radius);
+        bc.radius = agroRadius;
     }
 
     // Update is called once per frame
