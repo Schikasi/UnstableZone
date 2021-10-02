@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -37,5 +38,6 @@ public class Movement : MonoBehaviour
         // что бы скорость была стабильной в любом случае
         // и учитывая что мы вызываем из FixedUpdate мы умножаем на fixedDeltaTimе
         transform.Translate(movement * Speed * Time.fixedDeltaTime);
+        transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.y); 
     }
 }

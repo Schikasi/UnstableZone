@@ -16,9 +16,7 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         Vector3 pos = Player.transform.position;
-        pos.z = -10;
-        transform.position = pos; 
-
-
+        pos.z -= 10;
+        transform.position = pos;
     }
 }
