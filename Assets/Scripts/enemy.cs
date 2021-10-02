@@ -18,7 +18,7 @@ public class enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         bc = gameObject.AddComponent<CircleCollider2D>() as CircleCollider2D;
         bc.isTrigger = true;
-        bc.radius = agroRadius;
+        bc.radius = agroRadius; 
     }
 
     // Update is called once per frame
