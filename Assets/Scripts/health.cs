@@ -5,8 +5,8 @@ using UnityEngine;
 public class health : MonoBehaviour
 {
 
-    public int max_health;
-    private int _current_health;
+    public float max_health;
+    private float _current_health;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +20,15 @@ public class health : MonoBehaviour
         
     }
     // returns true if object is alive
-    public bool get_damage(int damage_rate)
+    public bool get_damage(float damage_rate)
     {
+        Debug.Log("got damage, value = " + damage_rate.ToString());
         _current_health -= damage_rate;
-        if (_current_health > 0) return true;
+        if (_current_health > 0f) return true;
         else return false;
     }
 
-    public void get_heal(int heal_rate)
+    public void get_heal(float heal_rate)
     {
         _current_health += heal_rate;
         if (_current_health > max_health) _current_health = max_health;
