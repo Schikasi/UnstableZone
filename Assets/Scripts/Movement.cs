@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//эта строчка гарантирует что наш скрипт не завалится ести на плеере будет отсутствовать компонент Rigidbody
+//this row ensures that the script won't crush in case of absence of component Rigidbode
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
