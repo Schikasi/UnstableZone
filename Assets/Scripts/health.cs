@@ -19,7 +19,7 @@ public class health : MonoBehaviour
     {
         
     }
-    // метод возвращает, жив ли объект после получения урона
+    // returns true if object is alive
     public bool get_damage(int damage_rate)
     {
         _current_health -= damage_rate;
