@@ -10,7 +10,7 @@ public class Action : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        InActionZone = new HashSet<GameObject>();
     }
 
     // Update is called once per frame
