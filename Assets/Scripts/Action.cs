@@ -21,7 +21,7 @@ public class Action : MonoBehaviour
 
     private void doAction()
     {
-        Debug.Log("Action");
+        //Debug.Log("Action");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

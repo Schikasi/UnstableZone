@@ -16,7 +16,7 @@ public class enemy : MonoBehaviour
     {
         isActive = false;
         _rb = GetComponent<Rigidbody2D>();
-        bc = gameObject.AddComponent<CircleCollider2D>() as CircleCollider2D;
+        bc = gameObject.AddComponent<CircleCollider2D>();
         bc.isTrigger = true;
         bc.radius = agroRadius; 
     }
