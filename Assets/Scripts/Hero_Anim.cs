@@ -28,26 +28,12 @@ public class Hero_Anim : MonoBehaviour
         if (directon.sqrMagnitude > 0.1f)
         {
             var angle = -Vector2.SignedAngle(Vector2.up, directon);
-            if (angle > -45 && angle <= 45)
-            {
-                anim.SetInteger("Direction", 1);
-            }
-            else if (angle > 45 && angle <= 135)
-            {
-                anim.SetInteger("Direction", 2);
-            }
-            else if (angle > 135 || angle <= -135)
-            {
-                anim.SetInteger("Direction", 3);
-            }
-            else if (angle > -135 && angle <= 45)
-            {
-                anim.SetInteger("Direction", 4);
-            }
+            anim.SetFloat("Angle", angle);
+            anim.SetFloat("Velocity", 1);
         }
         else
         {
-            anim.SetInteger("Direction", 0);
+            anim.SetFloat("Velocity", 0);
         }
 
     }
