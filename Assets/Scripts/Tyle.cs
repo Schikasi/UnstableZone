@@ -28,6 +28,6 @@ public class Tyle : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == this.name) return;
-        Debug.Log(other.gameObject.name + "ohuel po mne hodit'!");
+        Debug.Log(other.gameObject.name + " ohuel po mne hodit'!");
     }
 }
