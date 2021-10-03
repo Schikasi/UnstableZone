@@ -27,7 +27,8 @@ public class Zombie : MonoBehaviour
         bc.radius = agroRadius;
         attackZone = gameObject.AddComponent<BoxCollider2D>();
         attackZone.isTrigger = true;
-        attackZone.size = attackZoneSize;      
+        attackZone.size = attackZoneSize;
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
