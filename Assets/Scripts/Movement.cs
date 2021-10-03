@@ -10,11 +10,13 @@ public class Movement : MonoBehaviour
     public float Speed = 5f;
 
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
         _rb.freezeRotation = true;
     }
 
@@ -38,6 +40,7 @@ public class Movement : MonoBehaviour
         // что бы скорость была стабильной в любом случае
         // и учитывая что мы вызываем из FixedUpdate мы умножаем на fixedDeltaTimе
         transform.Translate(movement * Speed * Time.fixedDeltaTime);
-        transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.y); 
+        transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.y);
+        _sr.sortingOrder = -(int)(transform.position.y*100);
     }
 }
