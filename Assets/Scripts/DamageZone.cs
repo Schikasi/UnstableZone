@@ -10,15 +10,16 @@ public class DamageZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        foreach (var go in GOinTrigger) {
+        foreach (var go in GOinTrigger)
+        {
             var health = go.GetComponent<health>();
-            health?.get_damage(Damage*Time.fixedDeltaTime);
+            health?.get_damage(Damage * Time.fixedDeltaTime);
         }
     }
 
