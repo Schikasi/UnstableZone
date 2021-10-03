@@ -34,13 +34,20 @@ public class Movement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
 
         float moveVertical = Input.GetAxis("Vertical");
+        if (Mathf.Abs(moveHorizontal) > 0.0f || Mathf.Abs(moveVertical) > 0.0f)
+        {
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            // что бы скорость была стабильной в любом случае
+            // и учитывая что мы вызываем из FixedUpdate мы умножаем на fixedDeltaTimе
+            transform.Translate(movement * Speed * Time.fixedDeltaTime);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+            _sr.sortingOrder = -(int)(transform.position.y * 100);
 
-        // что бы скорость была стабильной в любом случае
-        // и учитывая что мы вызываем из FixedUpdate мы умножаем на fixedDeltaTimе
-        transform.Translate(movement * Speed * Time.fixedDeltaTime);
-        transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.y);
-        _sr.sortingOrder = -(int)(transform.position.y*100);
+            Vector2 directon = new Vector2(moveHorizontal, moveVertical);
+            var angle = Vector2.SignedAngle(Vector2.up, directon);
+
+            transform.GetChild(1).gameObject.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
+        }
     }
 }
