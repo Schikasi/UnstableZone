@@ -8,6 +8,8 @@ public class health : MonoBehaviour
     public float max_health;
     private float _current_health;
 
+    public float Current_health { get => _current_health; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +35,6 @@ public class health : MonoBehaviour
         _current_health += heal_rate;
         if (_current_health > max_health) _current_health = max_health;
     }
+
+
 }
