@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Meat : MonoBehaviour
 {
-    public GameObject player;
-    public float agroRadius;
-    public float damage;
+    public float attackRadius = 0.5f;
+    public float damage = 15f;
 
     private Rigidbody2D _rb;
     private CircleCollider2D bc;
@@ -19,7 +18,7 @@ public class Meat : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         bc = gameObject.AddComponent<CircleCollider2D>();
         bc.isTrigger = true;
-        bc.radius = agroRadius;
+        bc.radius = attackRadius;
         _sr = GetComponent<SpriteRenderer>();
         _sr.sortingOrder = -(int)(transform.position.y * 100);
     }
@@ -39,17 +38,9 @@ public class Meat : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.name == "Hero")
-        {
-            var  health = collision.gameObject.GetComponent<health>();
-            health?.get_damage(damage * Time.fixedDeltaTime);
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.isTrigger)
         GOinTrigger.Add(other.gameObject);
     }
 
