@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
-    
+
     public TypeAction tAction = TypeAction.None;
     public float cooldown = 0.9f;
     public float damage = 10f;
@@ -22,18 +22,18 @@ public class Action : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetButton("Action")) doAction();
+        if (Input.GetButton("Action")) doAction();
     }
 
     private void doAction()
     {
         //Debug.Log("Action");
-        if (_curr_ttw > e) _curr_ttw -= Time.fixedDeltaTime;
-        if ( tAction == TypeAction.Atack )
+        _curr_ttw = Mathf.Clamp(_curr_ttw - Time.fixedDeltaTime, 0.0f, cooldown);
+        if (tAction == TypeAction.Atack)
         {
-            if (Mathf.Abs(_curr_ttw) < e )
+            if (Mathf.Abs(_curr_ttw) < e)
             {
-                foreach ( var go in InActionZone )
+                foreach (var go in InActionZone)
                 {
                     var health = go.gameObject.GetComponent<health>();
                     health?.get_damage(damage, health.TypeDamage.default_);
