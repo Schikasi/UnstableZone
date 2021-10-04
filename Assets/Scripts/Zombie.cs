@@ -8,13 +8,11 @@ public class Zombie : MonoBehaviour
     public GameObject player;
     public float agroRadius;
     public float moveSpeed = 1;
-    public Vector2 attackZoneSize = new Vector2(1, 1);
 
 
     private bool isActive;
     private Rigidbody2D _rb; 
     private CircleCollider2D bc;
-    private BoxCollider2D attackZone;
     private SpriteRenderer _sr;
 
     // Start is called before the first frame update
@@ -25,9 +23,6 @@ public class Zombie : MonoBehaviour
         bc = gameObject.AddComponent<CircleCollider2D>();
         bc.isTrigger = true;
         bc.radius = agroRadius;
-        attackZone = gameObject.AddComponent<BoxCollider2D>();
-        attackZone.isTrigger = true;
-        attackZone.size = attackZoneSize;
         _sr = GetComponent<SpriteRenderer>();
     }
 
