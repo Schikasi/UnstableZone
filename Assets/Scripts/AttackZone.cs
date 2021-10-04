@@ -28,7 +28,6 @@ public class AttackZone : MonoBehaviour
             var zmb = gameObject.GetComponentInParent<Zombie>();
             zmb.player.GetComponent<health>().get_damage(damage);
             time_to_attack_left = cooldown;
-            Debug.Log("attacked");
         }
         else time_to_attack_left -= Time.fixedDeltaTime;
     }
