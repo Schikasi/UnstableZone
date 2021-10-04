@@ -24,7 +24,6 @@ public class health : MonoBehaviour
     // returns true if object is alive
     public bool get_damage(float damage_rate)
     {
-        Debug.Log("got damage, value = " + damage_rate.ToString());
         _current_health -= damage_rate;
         if (_current_health > 0f) return true;
         else return false;

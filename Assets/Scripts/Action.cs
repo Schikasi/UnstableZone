@@ -7,7 +7,7 @@ public class Action : MonoBehaviour
 {
     
     public TypeAction tAction = TypeAction.None;
-    public float cooldown = 0.2f;
+    public float cooldown = 0.9f;
     public float damage = 10f;
 
 
@@ -29,22 +29,26 @@ public class Action : MonoBehaviour
     private void doAction()
     {
         //Debug.Log("Action");
+        if (_curr_ttw > e) _curr_ttw -= Time.fixedDeltaTime;
         if ( tAction == TypeAction.Atack )
         {
             if (Mathf.Abs(_curr_ttw) < e )
             {
-                foreach( var go in InActionZone )
+                foreach ( var go in InActionZone )
                 {
                     var health = go.gameObject.GetComponent<health>();
-                    health?.get_damage(damage * Time.fixedDeltaTime);
+                    health?.get_damage(damage);
+                    Debug.Log("Action to " + go.name);
                 }
+                _curr_ttw = cooldown;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        InActionZone.Add(collision.gameObject);
+        if (!collision.isTrigger)
+            InActionZone.Add(collision.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
