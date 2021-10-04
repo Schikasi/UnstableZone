@@ -12,6 +12,12 @@ public class AttackZone : MonoBehaviour
     private float time_to_attack_left;
     private float e = 0.02f;
 
+    public Animation LeftHit;
+    public Animation UpHit;
+    public Animation RightHit;
+    public Animation DownHit;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +27,16 @@ public class AttackZone : MonoBehaviour
 
     private void FixedUpdate()
     {
+        time_to_attack_left = Mathf.Clamp(time_to_attack_left - Time.fixedDeltaTime, 0.0f, cooldown);
         Debug.DrawLine(transform.position, myZone.offset);
         if (!playerInRange) return;
-        if (Mathf.Abs(time_to_attack_left) <= e)
+        if (time_to_attack_left <= e)
         {
+
             var zmb = gameObject.GetComponentInParent<Zombie>();
             zmb.player.GetComponent<health>().get_damage(damage);
             time_to_attack_left = cooldown;
         }
-        else time_to_attack_left -= Time.fixedDeltaTime;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
