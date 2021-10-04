@@ -22,6 +22,12 @@ public class Hero_Anim : MonoBehaviour
 
         float moveVertical = Input.GetAxis("Vertical");
 
+        MoveAnim(moveHorizontal, moveVertical);
+
+    }
+
+    private void MoveAnim(float moveHorizontal, float moveVertical)
+    {
         Vector2 directon = new Vector2(moveHorizontal, moveVertical);
         directon.Normalize();
 
@@ -35,6 +41,5 @@ public class Hero_Anim : MonoBehaviour
         {
             anim.SetFloat("Velocity", 0);
         }
-
     }
 }
