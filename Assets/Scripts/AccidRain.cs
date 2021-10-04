@@ -8,7 +8,9 @@ public class AccidRain : MonoBehaviour
     public float moveSpeed = 0.7f;
     public float timeToChangeDirection = 2f;
     public float damage = 5f;
+    public GameObject effect;
 
+    private GameObject eff;
     private RandomMovement rm;
     private float timeLeft = 0f;
     private float e = 0.2f;
@@ -28,7 +30,6 @@ public class AccidRain : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (Mathf.Abs(timeLeft) < e)
         {
             timeLeft = timeToChangeDirection;
@@ -37,6 +38,7 @@ public class AccidRain : MonoBehaviour
         else timeLeft -= Time.fixedDeltaTime;
         Vector2 movement = new Vector2(Mathf.Sin(Mathf.Deg2Rad * angle), Mathf.Cos(Mathf.Deg2Rad * angle));
         transform.Translate(movement * Time.fixedDeltaTime * moveSpeed);
+        if ( eff != null) eff.transform.Translate(movement * Time.fixedDeltaTime * moveSpeed);
         foreach(var go in GOinTrigger)
         {
             var health = go.gameObject.GetComponent<health>();
@@ -52,10 +54,14 @@ public class AccidRain : MonoBehaviour
         }
         else if (!collision.isTrigger)
             GOinTrigger.Add(collision.gameObject);
+        if (collision.gameObject.name == "Hero")
+            eff = Instantiate(effect, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         GOinTrigger.Remove(collision.gameObject);
+        if (collision.gameObject.name == "Hero")
+            Destroy(eff, 0.8f);
     }
 }

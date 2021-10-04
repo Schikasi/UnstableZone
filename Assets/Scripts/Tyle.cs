@@ -27,11 +27,11 @@ public class Tyle : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        /*
+        
         if (other.gameObject.GetComponent<AccidRain>() != null)
         {
             Debug.Log("now i'm rain");
-        }
+        } /*
         else if (other.gameObject.GetComponent<GravityFunnel>() != null)
         {
             Debug.Log("now i'm earth");

@@ -6,6 +6,7 @@ public class Meat : MonoBehaviour
 {
     public float attackRadius = 0.5f;
     public float damage = 15f;
+    public GameObject effect;
 
     private Rigidbody2D _rb;
     private CircleCollider2D bc;
@@ -31,11 +32,14 @@ public class Meat : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GameObject eff = null;
+        if (GOinTrigger.Count > 0) eff = Instantiate(effect, transform.position, Quaternion.identity);
         foreach (var go in GOinTrigger)
         { 
             var health = go.gameObject.GetComponent<health>();
             health?.get_damage(damage * Time.fixedDeltaTime);
         }
+        if (GOinTrigger.Count > 0) Destroy(eff, 0.15f);
     }
 
     void OnTriggerEnter2D(Collider2D other)

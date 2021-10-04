@@ -10,7 +10,6 @@ public class Action : MonoBehaviour
     public float cooldown = 0.9f;
     public float damage = 10f;
 
-
     private HashSet<GameObject> InActionZone;
     private float e = 0.1f;
     private float _curr_ttw = 0;

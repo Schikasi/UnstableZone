@@ -25,7 +25,6 @@ public class RandomMovement : MonoBehaviour
             dy = -dy;
         Vector2 movement = new Vector2(dx, dy);
         var angle = Vector2.SignedAngle(Vector2.up, movement);
-        Debug.Log(angle);
         return angle;
     }
 
