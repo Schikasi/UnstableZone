@@ -7,6 +7,9 @@ public class Action : MonoBehaviour
 {
     private HashSet<GameObject> InActionZone;
     public TypeAction tAction = TypeAction.None;
+    public float cooldown = 0.2f;
+    private float e = 0.1f;
+    private float _curr_ttw = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +19,23 @@ public class Action : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetButton("Action"))doAction();
+        if(Input.GetButton("Action")) doAction();
     }
 
     private void doAction()
     {
         //Debug.Log("Action");
+        if ( tAction == TypeAction.Atack )
+        {
+            if (Mathf.Abs(_curr_ttw) < e )
+            {
+                foreach( var go in InActionZone )
+                {
+                    var health = go.gameObject.GetComponent<health>();
+                    health?.get_damage(damage * Time.fixedDeltaTime);
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
