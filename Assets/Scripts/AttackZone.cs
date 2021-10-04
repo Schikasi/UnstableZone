@@ -6,22 +6,23 @@ public class AttackZone : MonoBehaviour
 {
     public float cooldown = 0.8f;
     public float damage = 1f;
+    public float Range = 1.0f;
 
-    private Collider2D myZone;
+    private CircleCollider2D myZone;
     private bool playerInRange = false;
     private float time_to_attack_left;
     private float e = 0.02f;
 
-    public Animation LeftHit;
-    public Animation UpHit;
-    public Animation RightHit;
-    public Animation DownHit;
+    private Animator anim;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        myZone = gameObject.GetComponent<Collider2D>();
+        myZone = gameObject.GetComponent<CircleCollider2D>();
+        if (myZone == null) myZone = gameObject.AddComponent<CircleCollider2D>();
+        myZone.radius = Range;
+        anim = GetComponentInParent<Animator>();
         time_to_attack_left = 0f;
     }
 
@@ -32,7 +33,7 @@ public class AttackZone : MonoBehaviour
         if (!playerInRange) return;
         if (time_to_attack_left <= e)
         {
-
+            anim.SetTrigger("Hit");
             var zmb = gameObject.GetComponentInParent<Zombie>();
             zmb.player.GetComponent<health>().get_damage(damage);
             time_to_attack_left = cooldown;
@@ -41,7 +42,7 @@ public class AttackZone : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( collision.gameObject.name == "Hero" )
+        if (collision.gameObject.name == "Hero")
         {
             playerInRange = true;
         }
@@ -52,7 +53,6 @@ public class AttackZone : MonoBehaviour
         if (collision.gameObject.name == "Hero")
         {
             playerInRange = false;
-            time_to_attack_left = 0;
         }
     }
 

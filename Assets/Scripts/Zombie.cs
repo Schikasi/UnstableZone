@@ -9,12 +9,15 @@ public class Zombie : MonoBehaviour
     public float agroRadius;
     public float moveSpeed = 1;
 
+    private Vector2 direct;
 
     private bool isActive;
     private Rigidbody2D _rb;
     private CircleCollider2D bc;
     private SpriteRenderer _sr;
     private Animator anim;
+
+    public Vector2 Direct { get => direct;}
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,7 @@ public class Zombie : MonoBehaviour
 
         Vector2 cell = player.transform.position;
         Vector2 cur = transform.position;
-        Vector2 direct = (cell - cur).normalized;
+        direct = (cell - cur).normalized;
         if (Vector2.Distance(cur, cell) > moveSpeed)
         {
             float step = moveSpeed * Time.fixedDeltaTime;
