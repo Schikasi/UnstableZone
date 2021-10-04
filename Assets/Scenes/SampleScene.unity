@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   damage: 5
+  Range: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +239,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.653703
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -588,6 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRadius: 1.5
   damage: 15
+  effect: {fileID: 5298168360049457617, guid: 2209c4c86a062e640946a262c7082335, type: 3}
 --- !u!1001 &941413164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,7 +599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 511367479141893341, guid: dc0c8b321aae7b34da46073fcdb0c5fb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.35
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 511367479141893341, guid: dc0c8b321aae7b34da46073fcdb0c5fb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -673,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157252953646036079, guid: dc0c8b321aae7b34da46073fcdb0c5fb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.93
+      value: -2.91
       objectReference: {fileID: 0}
     - target: {fileID: 5157252953646036079, guid: dc0c8b321aae7b34da46073fcdb0c5fb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -941,6 +943,7 @@ MonoBehaviour:
   moveSpeed: 0.7
   timeToChangeDirection: 1
   damage: 1
+  effect: {fileID: 7973482181190058454, guid: 3e8efb7afdbe66743a4b94a466c3205a, type: 3}
 --- !u!212 &2097921149
 SpriteRenderer:
   m_ObjectHideFlags: 0
