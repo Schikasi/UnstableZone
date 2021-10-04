@@ -37,7 +37,7 @@ public class Meat : MonoBehaviour
         foreach (var go in GOinTrigger)
         { 
             var health = go.gameObject.GetComponent<health>();
-            health?.get_damage(damage * Time.fixedDeltaTime);
+            health?.get_damage(damage * Time.fixedDeltaTime, health.TypeDamage.toxin);
         }
         if (GOinTrigger.Count > 0) Destroy(eff, 0.15f);
     }

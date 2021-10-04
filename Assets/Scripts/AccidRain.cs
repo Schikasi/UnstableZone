@@ -42,7 +42,7 @@ public class AccidRain : MonoBehaviour
         foreach(var go in GOinTrigger)
         {
             var health = go.gameObject.GetComponent<health>();
-            health?.get_damage(damage * Time.fixedDeltaTime);
+            health?.get_damage(damage * Time.fixedDeltaTime, health.TypeDamage.accid);
         }
     }
 
