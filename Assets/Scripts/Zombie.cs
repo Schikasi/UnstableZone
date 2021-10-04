@@ -43,6 +43,15 @@ public class Zombie : MonoBehaviour
         else dy = moveSpeed;
         Vector2 movement = new Vector2(dx, dy) * Time.fixedDeltaTime;
         transform.Translate(movement);
+        _sr.sortingOrder = -(int)(transform.position.y * 100);
+
+        //Vector2 directon = new Vector2(moveHorizontal, moveVertical);
+        //var angle = Vector2.SignedAngle(Vector2.up, movement.normalized);
+        //transform.GetChild(0).gameObject.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
+
+        //transform.GetChild(0).gameObject.transform.Translate(movement.normalized);
+        //transform.GetChild(0).gameObject.transform.Translate(movement.normalized * new Vector2(1, 1));
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
