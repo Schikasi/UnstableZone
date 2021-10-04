@@ -52,7 +52,7 @@ public class health : MonoBehaviour
     // returns true if object is alive
     public bool get_damage(float damage_rate, TypeDamage tdamage)
     {
-        _current_health -= damage_rate * Mathf.Min(0, 1-GetResist(tdamage));
+        _current_health -= damage_rate * Mathf.Max(0, 1-GetResist(tdamage));
         if (_current_health > 0f) return true;
         else return false;
     }

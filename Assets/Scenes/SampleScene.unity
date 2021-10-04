@@ -942,8 +942,8 @@ MonoBehaviour:
   Range: 4
   moveSpeed: 0.7
   timeToChangeDirection: 1
-  damage: 1
-  effect: {fileID: 7973482181190058454, guid: 3e8efb7afdbe66743a4b94a466c3205a, type: 3}
+  damage: 5
+  effect: {fileID: 9039274050089907652, guid: 37f003eedeed3664ab71d27bdf0952ba, type: 3}
 --- !u!212 &2097921149
 SpriteRenderer:
   m_ObjectHideFlags: 0
