@@ -38,7 +38,6 @@ public class Action : MonoBehaviour
                 {
                     var health = go.gameObject.GetComponent<health>();
                     health?.get_damage(damage);
-                    Debug.Log("Action to " + go.name);
                 }
                 _curr_ttw = cooldown;
             }
