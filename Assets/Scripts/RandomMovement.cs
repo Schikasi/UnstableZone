@@ -12,7 +12,6 @@ public class RandomMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CalculateAngle();
     }
 
     // Update is called once per frame
