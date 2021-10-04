@@ -15,8 +15,8 @@ public class Zombie : MonoBehaviour
     private Rigidbody2D _rb; 
     private CircleCollider2D bc;
     private BoxCollider2D attackZone;
-    private Vector2 movement = new Vector2(0.5f, 0.5f);
-    
+    private SpriteRenderer _sr;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,28 +28,34 @@ public class Zombie : MonoBehaviour
         attackZone = gameObject.AddComponent<BoxCollider2D>();
         attackZone.isTrigger = true;
         attackZone.size = attackZoneSize;
-        gameObject.SetActive(true);
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    public void fixedUpdate()
+    public void FixedUpdate()
     {
-        Debug.Log("must have been moved!");
         if (isActive == false) return;
-        attackZone.transform.Translate(attackZoneSize * Time.fixedDeltaTime);
-        
-        //attackZone.offset = new Vector2(0.05f, 0.5f);
-        transform.Translate(movement * moveSpeed * Time.fixedDeltaTime);
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
-    }
-
-    public void Update()
-    {
+        float dx = 0f;
+        float dy = 0f;
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < moveSpeed &&
+            Mathf.Abs(transform.position.y - player.transform.position.y) < moveSpeed)
+            return;
+        if (transform.position.x > player.transform.position.x)
+            dx = -moveSpeed;
+        else dx = moveSpeed;
+        if (transform.position.y > player.transform.position.y)
+            dy = -moveSpeed;
+        else dy = moveSpeed;
+        Vector2 movement = new Vector2(dx, dy) * Time.fixedDeltaTime;
+        transform.Translate(movement);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<Hero_Anim>() != null && isActive == false)
+        {
             isActive = true;
-            Debug.Log("activated!");
+        }
+        
     }
 }

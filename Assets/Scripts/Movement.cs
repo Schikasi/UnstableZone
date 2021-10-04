@@ -50,4 +50,12 @@ public class Movement : MonoBehaviour
             transform.GetChild(1).gameObject.transform.eulerAngles = new Vector3(0.0f, 0.0f, angle);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name == "AttackZone")
+        {
+            Debug.Log("Put health decrease here!");
+        }
+    }
 }
