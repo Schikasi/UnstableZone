@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
-    private HashSet<GameObject> InActionZone;
+    
     public TypeAction tAction = TypeAction.None;
     public float cooldown = 0.2f;
+    public float damage = 10f;
+
+
+    private HashSet<GameObject> InActionZone;
     private float e = 0.1f;
     private float _curr_ttw = 0;
     // Start is called before the first frame update
