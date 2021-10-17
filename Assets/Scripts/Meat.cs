@@ -36,8 +36,8 @@ public class Meat : MonoBehaviour
         if (GOinTrigger.Count > 0) eff = Instantiate(effect, transform.position, Quaternion.identity);
         foreach (var go in GOinTrigger)
         { 
-            var health = go.gameObject.GetComponent<health>();
-            health?.get_damage(damage * Time.fixedDeltaTime, health.TypeDamage.toxin);
+            var health = go.gameObject.GetComponent<Health>();
+            health?.get_damage(damage * Time.fixedDeltaTime, Health.TypeDamage.Toxin);
         }
         if (GOinTrigger.Count > 0) Destroy(eff, 0.15f);
     }

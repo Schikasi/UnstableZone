@@ -35,8 +35,8 @@ public class Action : MonoBehaviour
             {
                 foreach (var go in InActionZone)
                 {
-                    var health = go.gameObject.GetComponent<health>();
-                    health?.get_damage(damage, health.TypeDamage.default_);
+                    var health = go.gameObject.GetComponent<Health>();
+                    health?.get_damage(damage, Health.TypeDamage.Default);
                 }
                 _curr_ttw = cooldown;
             }

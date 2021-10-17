@@ -18,8 +18,8 @@ public class DamageZone : MonoBehaviour
     {
         foreach (var go in GOinTrigger)
         {
-            var health = go.GetComponent<health>();
-            health?.get_damage(Damage * Time.fixedDeltaTime, health.TypeDamage.default_);
+            var health = go.GetComponent<Health>();
+            health?.get_damage(Damage * Time.fixedDeltaTime, Health.TypeDamage.Default);
         }
     }
 

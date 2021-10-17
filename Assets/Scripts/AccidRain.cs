@@ -41,8 +41,8 @@ public class AccidRain : MonoBehaviour
         if ( eff != null) eff.transform.Translate(movement * Time.fixedDeltaTime * moveSpeed);
         foreach(var go in GOinTrigger)
         {
-            var health = go.gameObject.GetComponent<health>();
-            health?.get_damage(damage * Time.fixedDeltaTime, health.TypeDamage.accid);
+            var health = go.gameObject.GetComponent<Health>();
+            health?.get_damage(damage * Time.fixedDeltaTime, Health.TypeDamage.Acid);
         }
     }
 

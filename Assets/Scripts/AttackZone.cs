@@ -35,7 +35,7 @@ public class AttackZone : MonoBehaviour
         {
             anim.SetTrigger("Hit");
             var zmb = gameObject.GetComponentInParent<Zombie>();
-            zmb.player.GetComponent<health>().get_damage(damage, health.TypeDamage.default_);
+            zmb.player.GetComponent<Health>().get_damage(damage, Health.TypeDamage.Default);
             time_to_attack_left = cooldown;
         }
     }
